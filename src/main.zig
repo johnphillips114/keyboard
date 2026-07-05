@@ -10,7 +10,7 @@ pub fn main() !void {
     var data = st.SawData{};
     var stream: ?*pa.PaStream = null;
 
-    const device = setup.findOutputDevice("pulse") orelse pa.Pa_GetDefaultOutputDevice();
+    const device = setup.findPreferredOutput();
 
     var out_params = pa.PaStreamParameters{
         .device = device,
