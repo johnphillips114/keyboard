@@ -31,7 +31,10 @@ pub fn main() !void {
         &data,
     ) != pa.paNoError) return error.OpenStreamFailed;
 
-    if (pa.Pa_StartStream(stream) != pa.paNoError) return error.StartStreamFailed;
-    pa.Pa_Sleep(3 * 1000);
+    while (true) {
+        if (pa.Pa_IsStreamActive(stream) != 1) {
+            if (pa.Pa_StartStream(stream) != pa.paNoError) return error.StartStreamFailed;
+        }
+    }
     _ = pa.Pa_StopStream(stream);
 }
