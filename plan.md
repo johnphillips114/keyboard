@@ -1,7 +1,8 @@
 # Keyboard
 
 This project is a keyboard application that I'm building with Zig. It uses the
-PortAudio library to play keyboard sounds right from your keyboard.
+PortAudio library to play keyboard sounds right from your keyboard. It uses
+the Raylib library for capturing key presses and releases.
 
 ## Interface
 
